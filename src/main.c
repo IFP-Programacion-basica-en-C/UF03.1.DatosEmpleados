@@ -64,7 +64,7 @@ void mostrarDatos(TRABAJADOR [], int );
 void importarDatos(FILE *f, TRABAJADOR trabajador[], int *numE)
 {
     int i = 0;
-    char edadAux[3];
+    char edadAux[10];
 	*numE = calculoLineasFichero(f);
 	
 	
@@ -90,8 +90,8 @@ void importarDatos(FILE *f, TRABAJADOR trabajador[], int *numE)
         eliminaBarraN(trabajador[i].nombre);
         fgets(trabajador[i].apellidos, MAXCADENA, f);
         eliminaBarraN(trabajador[i].apellidos);
-        // fgets(edadAux, MAXCADENA, f);
-        // trabajador[i].edad = atoi(edadAux);
+        fgets(edadAux, MAXCADENA, f);
+        trabajador[i].edad = atoi(edadAux);
         fgets(trabajador[i].departamento, MAXCADENA, f);
         eliminaBarraN(trabajador[i].departamento); 
     }
@@ -119,7 +119,7 @@ void mostrarDatos(TRABAJADOR trabajador[], int numE)
 
     for (int i = 0; i < numE; i++)
     {
-        printf("%s\t%s\t%s\n", trabajador[i].nombre, trabajador[i].apellidos, trabajador[i].departamento);
+        printf("%s %s \t%d\t%s\n", trabajador[i].nombre, trabajador[i].apellidos, trabajador[i].edad, trabajador[i].departamento);
     }
 }
 void eliminaBarraN(char cad[MAXCADENA])
