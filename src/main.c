@@ -50,6 +50,7 @@ int main()
         getch();
 
         mostrarDatos(trabajador, numE);
+        printf("\nTOTAL TRABAJADORES: %d\n", numE);
 
         fclose(f);
     }
@@ -76,6 +77,7 @@ void importarDatos(FILE *f, TRABAJADOR trabajador[], int *numE)
         fgets(trabajador[i].departamento, MAXCADENA, f);
         eliminaBarraN(trabajador[i].departamento);
     }
+    
 }
 
 int calculoLineasFichero(FILE *f)
